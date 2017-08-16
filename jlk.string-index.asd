@@ -4,6 +4,6 @@
   :description "Simple string index library"
   :version "0.1"
   :author "JLK"
-  :license "2-Clause BSD"
+  :license "BSD 3-Clause"
   :serial t
   :components ((:file "string-index")))
