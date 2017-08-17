@@ -6,9 +6,26 @@
 	   #:search-index
 	   #:flatten-index
 	   #:human-search)
-  (:documentation "A simple string indexing library.
+  (:documentation "
+# jlk.string-index
 
-Produces a tree of alists, indexed by character."))
+A simple string indexing library for Common Lisp.
+
+Produces a tree of alists, indexed by character.
+
+## Usage
+
+Provide a list of (strings . value) pairs to the function `make-index`
+to create an index.
+
+Use the function `human-search` to find the matching value for the
+provided term. Partial matches are returned as the second
+value. Internally this uses `search-index` and `flatten-index`.
+
+## Licence
+
+BSD 3-Clause, see LICENCE file in the repository
+"))
 
 (in-package #:jlk.string-index)
 
@@ -17,9 +34,9 @@ Produces a tree of alists, indexed by character."))
 
 ;;; cannot use standard alist as we need to be able to return a value
 ;;; and further expansions, eg. for value-a and value-aa
-;;; 
+
 ;;; therefore define a new type of list, ilist. assoc will still work
-;;; unchanged.
+;;; unchanged. define them as macros so that setf still works.
 
 (defun icons (key datum children ilist)
   (cons (list key datum children) ilist))
